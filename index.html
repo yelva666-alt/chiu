@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人介紹 - 邱小花</title>
+    <style>
+        /* 1. 全域樣式優化 */
+        :root {
+            --primary-color: #fcdea5; /* 主色調：藍色 */
+            --secondary-color: #0f8a56; /* 次要色調：綠色 (用於連結/亮點) */
+            --text-color: #333;
+            --light-bg: #f8f9fa; /* 更亮的背景色 */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 輕微但明顯的陰影 */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0; /* 移除 body padding，讓 footer 到底 */
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 2. 容器優化 */
+        .container {
+            flex-grow: 1; /* 讓內容佔滿剩餘空間 */
+            max-width: 900px; /* 稍微寬一點 */
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        /* 3. Header 優化 */
+        header {
+            text-align: center;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e9ecef; /* 更柔和的分隔線 */
+        }
+        header h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 2.5em;
+        }
+        header p {
+            color: #6c757d;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* 4. 個人照片優化 */
+        .profile-photo {
+            display: block;
+            width: 180px; /* 稍微大一點 */
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 25px auto 35px auto;
+            border: 5px solid var(--primary-color); /* 主色調邊框 */
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(2deg); /* 懸停動畫 */
+        }
+
+        /* 5. 區塊樣式優化 */
+        section {
+            margin-bottom: 30px;
+            padding: 15px 0;
+        }
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+            display: inline-block; /* 讓底線只在文字下方 */
+        }
+
+        section p {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        /* 6. 聯絡資訊列表 */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-list li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        .contact-list li strong {
+            color: #555;
+            min-width: 100px;
+            display: inline-block;
+        }
+        .contact-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-list a:hover {
+            text-decoration: underline;
+            color: var(--primary-color); /* 懸停時變換顏色 */
+        }
+
+        /* 7. 技能標籤樣式 (新增) */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .skill-tag.focus { /* 突出關鍵技能 */
+            background-color: var(--secondary-color);
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            background-color: #0056b3;
+        }
+
+        /* 8. Footer 樣式優化 (新增/優化) */
+        footer {
+            margin-top: auto; /* 將 footer 推到底部 */
+            padding: 15px 20px;
+            text-align: center;
+            background-color: #343a40; /* 深色背景 */
+            color: #ccc;
+            font-size: 0.9em;
+            border-top: 1px solid #444;
+        }
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin: 0 5px;
+        }
+        footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a name="top"></a> <div class="container">
+        <header>
+            <h1>邱小花 (Chiu Xiao-Huang)</h1>
+            <p>資深軟體工程師 / 網頁開發專家</p>
+        </header>
+
+        <img src="images/gif-2.gif" alt="個人大頭照" class="profile-photo" alt="個人大頭照" class="profile-photo">
+
+        <section>
+            <h2>自我介紹</h2>
+            <p>
+                我是一位熱衷於前端與後端技術的**全端工程師**，擁有五年以上開發經驗。
+                專注於建構高效能、易用且可擴展的網頁應用程式。
+                擅長使用 **React**, **Node.js**, 和各種雲端服務。
+                我樂於接受新挑戰，並期待將創新的想法轉化為實際可用的產品。
+                具備優秀的問題解決能力和團隊合作精神，致力於提供卓越的用戶體驗。
+            </p>
+        </section>
+
+        <section>
+            <h2>核心技能</h2>
+            <ul class="skills-list">
+                <li class="skill-tag focus">React / Redux</li>
+                <li class="skill-tag focus">Node.js / Express</li>
+                <li class="skill-tag">JavaScript (ES6+) / TypeScript</li>
+                <li class="skill-tag">HTML5 / CSS3 / SASS</li>
+                <li class="skill-tag">RESTful API / GraphQL</li>
+                <li class="skill-tag">MongoDB / PostgreSQL</li>
+                <li class="skill-tag">AWS / Azure (Cloud Services)</li>
+                <li class="skill-tag">Git / CI/CD</li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>聯絡方式</h2>
+            <ul class="contact-list">
+                <li>
+                    <strong>Email:</strong> 
+                    <a href="mailto:david.wang@example.com">david.wang@example.com</a>
+                </li>
+                <li>
+                    <strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/邱小花</a>
+                </li>
+                <li>
+                    <strong>GitHub:</strong> 
+                    <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                </li>
+                <li>
+                    <strong>個人網站/部落格:</strong> 
+                    <a href="https://www.yourblog.com" target="_blank">www.yourblog.com</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2025 邱小花 (Chiu Xiao-Huang) | 
+            <a href="mailto:david.wang@example.com">聯絡我</a> | 
+            <a href="#top">回到頂部</a>
+        </p>
+    </footer>
+
+
+</body>
+</html>
